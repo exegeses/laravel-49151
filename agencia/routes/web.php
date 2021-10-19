@@ -33,5 +33,9 @@ Route::get('/adminRegiones', function()
 });
 Route::get('/agregarRegion', function ()
 {
-
+    return view('agregarRegion');
+});
+Route::post('/agregarRegion', function ()
+{
+    return 'ahora si ya podemos agregar';
 });
