@@ -22,3 +22,11 @@ Route::get('/regiones', function ()
                     );
     return view('regiones', [ 'regiones'=>$regiones ] );
 });
+
+
+########################################
+######  CRUD de regiones
+Route::get('/adminRegiones', function()
+{
+    return view('adminRegiones');
+});
