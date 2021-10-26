@@ -53,7 +53,7 @@
 
 > La clase DB se encarga de parte de la magia
 
-<img src="extras/imagenes/capas-rSQL+fQB.png">
+<img src="imagenes/capas-rSQL+fQB.png">
 
 
 ## Raw SQL
@@ -69,6 +69,6 @@
 	DB::table('nTabla')->get()
 	DB::table('nTabla')->select('campo, campo')->get()
 
-	DB::table('nTable')->insert(???)
-	DB::table('nTable')->where('condicion')->update(???)
+	DB::table('nTable')->insert([  ])
+	DB::table('nTable')->where('condicion')->update( [] )
 	DB::table('nTable')->where('condicion')->delete()
