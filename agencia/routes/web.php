@@ -16,10 +16,15 @@ Route::get('/inicio', function ()
 Route::get('/regiones', function ()
 {
     //obtenemos listado de regiones
-    $regiones = DB::select('
+    /*
+     $regiones = DB::select('
+
                         SELECT regID, regNombre
                             FROM regiones'
                     );
+    */
+    $regiones = DB::table('regiones')->get();
+
     return view('regiones', [ 'regiones'=>$regiones ] );
 });
 
@@ -67,12 +72,17 @@ Route::get('/modificarRegion/{regID}', function ($regID)
 Route::get('/adminDestinos', function ()
 {
     //obtenemos un listado de destinos
-    $destinos = DB::select(
+    /*
+     $destinos = DB::select(
                     'SELECT destID, destNombre, regNombre, destPrecio
                         FROM destinos d
                             JOIN regiones r
                             ON d.regID = r.regID'
-                    );
+                    );*/
+    $destinos = DB::table('destinos as d')
+                        ->join('regiones as r', 'd.regID', '=', 'r.regID')
+                        ->select('destID', 'destNombre', 'regNombre', 'destPrecio')
+                        ->get();
     return view('adminDestinos',
                     [ 'destinos'=>$destinos ]
             );
