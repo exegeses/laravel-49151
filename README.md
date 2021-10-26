@@ -1,6 +1,7 @@
 <img src="extras/imagenes/laravel-logo.jpg">
 
 # Curso de Laravel código 49151
+<img src="https://img.shields.io/badge/Laravel-F26453?style=for-the-badge&logo=laravel&logoColor=white">
 
 > Curso de Laravel |  
 > Martes 19hs a 22hs (Arg) |  
