@@ -22,11 +22,11 @@
         </tr>
         </thead>
         <tbody>
-
+    @foreach( $destinos as $destino )
             <tr>
-                <td> destNombre </td>
-                <td> regNombre </td>
-                <td> destPrecio </td>
+                <td>{{ $destino->destNombre }}</td>
+                <td>{{ $destino->regNombre }}</td>
+                <td>{{ $destino->destPrecio }}</td>
                 <td>
                     <a href="/modificarDestino/id" class="btn btn-outline-secondary">
                         Modificar
@@ -38,8 +38,7 @@
                     </a>
                 </td>
             </tr>
-
-
+    @endforeach
         </tbody>
     </table>
 @endsection

@@ -61,3 +61,19 @@ Route::get('/modificarRegion/{regID}', function ($regID)
                     );
     return view('modificarRegion', [ 'region'=>$region ]);
 });
+
+########################################
+######  CRUD de destinos
+Route::get('/adminDestinos', function ()
+{
+    //obtenemos un listado de destinos
+    $destinos = DB::select(
+                    'SELECT destID, destNombre, regNombre, destPrecio
+                        FROM destinos d
+                            JOIN regiones r
+                            ON d.regID = r.regID'
+                    );
+    return view('adminDestinos',
+                    [ 'destinos'=>$destinos ]
+            );
+});
