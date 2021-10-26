@@ -87,3 +87,7 @@ Route::get('/adminDestinos', function ()
                     [ 'destinos'=>$destinos ]
             );
 });
+Route::get( '/agregarDestino', function()
+{
+    return view('agregarDestino');
+});
