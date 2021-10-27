@@ -66,9 +66,11 @@
 
 ## Fluent Query Builder
 
-	DB::table('nTabla')->get()
-	DB::table('nTabla')->select('campo, campo')->get()
+	DB::table('nTabla')->get()  
+	DB::table('nTabla')->select('campo, campo')->get()  
+	DB::table('nTabla')->select('campo, campo')->where()->get()  
+	DB::table('nTabla')->join(...)->select('campo, campo')->get()  
 
-	DB::table('nTable')->insert([  ])
-	DB::table('nTable')->where('condicion')->update( [] )
-	DB::table('nTable')->where('condicion')->delete()
+	DB::table('nTable')->insert([  ])  
+	DB::table('nTable')->where('condicion')->update( [] )  
+	DB::table('nTable')->where('condicion')->delete()  
