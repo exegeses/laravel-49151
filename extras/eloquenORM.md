@@ -11,5 +11,5 @@
     php artisan make:model Nombre
 
 ## Generación de una controller
-    php artisan make:controller NombreController
+    php artisan make:controller NombreController -r
 
