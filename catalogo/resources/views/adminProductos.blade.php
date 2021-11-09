@@ -27,14 +27,14 @@
                 </tr>
             </thead>
             <tbody>
-
+        @foreach( $productos as $producto )
                 <tr>
-                    <td>prod</td>
-                    <td>marca</td>
-                    <td>categoria</td>
-                    <td>precio</td>
-                    <td>present</td>
-                    <td>imagen</td>
+                    <td>{{ $producto->prdNombre }}</td>
+                    <td>{{ $producto->getMarca->mkNombre }}</td>
+                    <td>{{ $producto->getCategoria->catNombre }}</td>
+                    <td>${{ $producto->prdPrecio }}</td>
+                    <td>{{ $producto->prdPresentacion }}</td>
+                    <td><img src="productos/{{ $producto->prdImagen }}" class="img-thumbnail"></td>
                     <td>
                         <a href="/modificarProducto" class="btn btn-outline-secondary">
                             Modificar
@@ -46,10 +46,11 @@
                         </a>
                     </td>
                 </tr>
-
-
+        @endforeach
             </tbody>
         </table>
+
+        {{ $productos->links() }}
 
 
     @endsection
