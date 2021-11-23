@@ -105,7 +105,7 @@ class MarcaController extends Controller
         //asignacion & guardar
         $Marca->mkNombre = $mkNombre;
         $Marca->save();
-        //retornar redicacción con mesaje ok
+        //retornar redirección con mesaje ok
         return redirect('/adminMarcas')
                 ->with([ 'mensaje'=>'Marca: '.$mkNombre.' modificada correctamente' ]);
     }
@@ -141,8 +141,16 @@ class MarcaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        /**
+         * $Marca = Marca::find($resquest->idMarca);
+         * $Marca->delete()
+         */
+        Marca::destroy($request->idMarca);
+        //retornar redirección con mesaje ok
+        return redirect('/adminMarcas')
+            ->with([ 'mensaje'=>'Marca: '.$request->mkNombre.' eliminada correctamente' ]);
+
     }
 }
