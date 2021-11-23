@@ -5,7 +5,7 @@
         <h1>Panel de administración de marcas</h1>
 
         @if ( session('mensaje') )
-            <div class="alert alert-success">
+            <div class="alert alert-{{ ( session('color') )?'warning':'success' }}">
                 {{ session('mensaje') }}
             </div>
         @endif
