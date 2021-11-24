@@ -75,6 +75,18 @@ class ProductoController extends Controller
         );
     }
 
+    private function subirImagen(Request $request)
+    {
+        //si no enviaron imagen
+        $prdImagen = 'noDisponible.jpg';
+
+        //si enviaron imagen
+            #renombrar archivo
+            #subir archivo
+
+        return $prdImagen;
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -84,8 +96,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         //validar
-
+        $this->validarForm($request);
         //subir imagen *
+
         //instanciar, asignar atributos
         //guardar
         //retornar redirección con mensaje ok
