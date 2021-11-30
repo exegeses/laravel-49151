@@ -81,9 +81,15 @@ class ProductoController extends Controller
         $prdImagen = 'noDisponible.jpg';
 
         //si enviaron imagen
+        if ( $request->file('prdImagen') ){
             #renombrar archivo
+            //time() . extension
+            $extension = $request->file('prdImagen')->extension();
+            $prdImagen = time().'.'.$extension;
             #subir archivo
-
+            $request->file('prdImagen')
+                    ->move( public_path('productos/'), $prdImagen );
+        }
         return $prdImagen;
     }
 
@@ -98,10 +104,21 @@ class ProductoController extends Controller
         //validar
         $this->validarForm($request);
         //subir imagen *
-
+        $prdImagen = $this->subirImagen($request);
         //instanciar, asignar atributos
+        $Producto = new Producto;
+        $Producto->prdNombre   = $request->prdNombre;
+        $Producto->prdPrecio   = $request->prdPrecio;
+        $Producto->idMarca     = $request->idMarca;
+        $Producto->idCategoria = $request->idCategoria;
+        $Producto->prdPresentacion = $request->prdPresentacion;
+        $Producto->prdStock    = $request->prdStock;
+        $Producto->prdImagen   = $prdImagen;
         //guardar
+        $Producto->save();
         //retornar redirección con mensaje ok
+        return redirect('adminProductos')
+                    ->with(['mensaje'=>'Producto: '.$request->prdNombre.' agregado correctamente.' ]);
     }
 
     /**

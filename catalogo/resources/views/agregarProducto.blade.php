@@ -72,5 +72,16 @@
             </div>
         @endif
 
+        <script>
+            let campo = document.querySelector('input[name="prdImagen"]');
+            let label = document.querySelector('.custom-file-label');
+
+            campo.addEventListener( 'change', cambiarTexto );
+            function cambiarTexto()
+            {
+                label.innerText = campo.value;
+            }
+        </script>
+
    @endsection
 
