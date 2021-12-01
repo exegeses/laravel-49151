@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Producto extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    protected $primaryKey = 'idProducto';
+    public $timestamps    = false;
 
     ##métodos de relación
     public function getMarca()
